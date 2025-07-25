@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${alumno.nombre} + ' - Perfil de Estudiante'">Perfil de Estudiante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/perfilAlumno.css}">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar bg-secondary p-4">
+        <div class="container">
+            <a class="navbar-brand text-light fs-1">Emplea<span class="text-warning">U</span></a>
+            <div class="d-flex gap-3">
+                <a th:href="@{/alumnos/perfilAlumnos}" class="btn-navbar btn-primary-nav">
+                    <i class="bi bi-building-fill me-2"></i>Perfil
+                </a>
+                <a th:href="@{/alumnos/listarEmpresas}" class="btn-navbar btn-primary-nav">
+                    <i class="bi bi-building-fill me-2"></i>Empresas
+                </a>
+                <a th:href="@{/alumnos/postulaciones}" class="btn-navbar btn-primary-nav">
+                    <i class="bi bi-person-check me-2"></i>Mis Postulaciones
+                </a>
+                <a th:href="@{/logout}" class="btn-navbar">
+                    <i class="bi bi-box-arrow-in-left me-2"></i>Cerrar Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section position-relative">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-3 text-center mb-4 mb-lg-0 slide-in-left">
+                    <div class="company-logo-large">
+                        <i class="bi bi-person-circle"></i>
+                    </div>
+                </div>
+                <div class="col-lg-9 slide-in-right">
+                    <h1 class="hero-title" th:text="${alumno.nombre}  + ' ' + ${alumno.apellido}">Nombre Alumno</h1>
+                    <p class="hero-subtitle" th:text="${alumno.carrera} + ' - ' + ${alumno.universidad}">Carrera -
+                        Universidad</p>
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <i class="bi bi-geo-alt fs-5"></i>
+                            <span th:text="${alumno.ubicacion}">Ubicación</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-envelope fs-5"></i>
+                            <span th:text="${usuario.email}">Email</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="bi bi-telephone fs-5"></i>
+                            <span th:text="${alumno.telefono}">Teléfono</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <div id="contacto" class="content-card fade-in">
+            <div class="card-header-custom">
+                <h3 class="card-title">
+                    <div class="title-icon">
+                        <i class="bi bi-person-vcard"></i>
+                    </div>
+                    Información Personal
+                </h3>
+                <p class="text-muted mb-0">Datos académicos y personales del estudiante</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">
+                        <div class="info-icon">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        Ciclo Académico
+                    </div>
+                    <p class="info-value" th:text="${alumno.ciclo}">8vo Ciclo</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <div class="info-icon">
+                            <i class="bi bi-card-text"></i>
+                        </div>
+                        Documento de Identidad
+                    </div>
+                    <p class="info-value" th:text="${alumno.dni}">72345678</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <div class="info-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        Fecha de Nacimiento
+                    </div>
+                    <p th:text="${alumno.fechaNacimiento}">2025-07-21</p>
+
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <div class="info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        Ubicación
+                    </div>
+                    <p class="info-value" th:text="${alumno.ubicacion}">Piura, Perú</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <div class="info-icon">
+                            <i class="bi bi-gender-ambiguous"></i>
+                        </div>
+                        Género
+                    </div>
+                    <p class="info-value" th:text="${alumno.genero}">Femenino</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-label">
+                        <div class="info-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        Universidad
+                    </div>
+                    <p class="info-value" th:text="${alumno.universidad}">Universidad Nacional de Piura</p>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <h4 class="fw-bold mb-4 text-center">
+                    <i class="bi bi-file-earmark-pdf text-danger me-2"></i>
+                    Curriculum Vitae
+                </h4>
+
+                <div class="file-upload" id="cvUpload">
+                    <div class="upload-icon">
+                        <i class="bi bi-cloud-upload"></i>
+                    </div>
+                    <h5 class="upload-title">Sube tu Curriculum Vitae</h5>
+                    <p class="upload-description">Arrastra tu archivo aquí o haz clic para seleccionar</p>
+                    <small class="upload-note">Formato: PDF (máximo 5MB)</small>
+                    <input title="Seleccionar archivo" type="file" class="d-none" id="cvInput" name="cv" accept=".pdf">
+                </div>
+
+                <div id="cvPreview" class="d-none">
+                    <div class="success-alert">
+                        <div class="success-icon">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div>
+                            <strong id="cvFileName"></strong> se ha subido correctamente
+                            <br>
+                            <small>Tu CV está listo para ser compartido con las empresas</small>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary-red" type="button">Subir CV</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button type="button" class="btn btn-primary-red" data-bs-toggle="modal" data-bs-target="#editarPerfil">
+                    <i class="bi bi-pencil-square me-2"></i>Editar Perfil
+                </button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- Modal Editar Perfil Alumno -->
+    <div class="modal fade" id="editarPerfil" tabindex="-1" aria-labelledby="editarPerfilLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-3 text-center w-100 fw-bold" id="editarPerfilLabel">Edita tu Perfil</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/alumnos/actualizarPerfil}" method="post" th:object="${alumno}">
+                        <input type="hidden" name="action" value="editar" />
+
+                        <div class="mb-3">
+                            <label for="nombre" class="col-form-label fs-5 fw-bold">Nombres:</label>
+                            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="apellido" class="col-form-label fs-5 fw-bold">Apellidos:</label>
+                            <input type="text" class="form-control" id="apellido" th:field="*{apellido}" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" th:field="*{telefono}" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Carrera</label>
+                            <input type="text" class="form-control" th:field="*{carrera}" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ubicacion" class="col-form-label fs-5 fw-bold">Ubicación:</label>
+                            <input type="text" class="form-control" id="ubicacion" th:field="*{ubicacion}" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" th:field="*{fechaNacimiento}" required
+                                onchange="validarEdad()" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ciclo" class="col-form-label fs-5 fw-bold">Ciclo Académico:</label>
+                            <input type="text" class="form-control" id="ciclo" th:field="*{ciclo}" />
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="d-flex gap-3">
+                        <a title="facebook" href="#" class="footer-link">
+                            <i class="bi bi-facebook fs-5"></i>
+                        </a>
+                        <a title="twitter" href="#" class="footer-link">
+                            <i class="bi bi-twitter fs-5"></i>
+                        </a>
+                        <a title="linkedin" href="#" class="footer-link">
+                            <i class="bi bi-linkedin fs-5"></i>
+                        </a>
+                        <a title="instagram" href="#" class="footer-link">
+                            <i class="bi bi-instagram fs-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2024 EmpleaU. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="d-flex gap-3 justify-content-md-end">
+                            <a href="#" class="text-white-50">Términos</a>
+                            <a href="#" class="text-white-50">Privacidad</a>
+                            <a href="#" class="text-white-50">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/perfilAlumno.js}"></script>
+</body>
+
+</html>

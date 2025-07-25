@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpleaU - Tu Portal de Oportunidades Profesionales</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar bg-secondary p-4">
+        <div class="container">
+            <a class="navbar-brand text-light fs-1">Emplea<span class="text-warning">U</span></a>
+            <div class="d-flex gap-3">
+                <a class="btn-navbar btn-primary-nav" data-bs-toggle="modal" data-bs-target="#registrerModal">
+                    <i class="bi bi-person-plus me-2"></i>Crear cuenta
+                </a>
+                <a th:href="@{/login}" class="btn-navbar">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Ingresar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="registrerModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3 text-center fw-bold w-100" id="modalTitle">
+                        <i class="bi bi-rocket-takeoff me-3"></i>
+                        ¡Bienvenido! Crea tu cuenta
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <!-- Estudiante -->
+                        <div class="col-sm-6">
+                            <div class="card h-100 hover-lift">
+                                <div class="card-body text-center">
+                                    <div class="mb-4">
+                                        <i class="bi bi-mortarboard-fill text-primary icon-3rem"></i>
+                                    </div>
+                                    <h5 class="card-title fs-4 fw-bold mb-3">Crea tu cuenta de estudiante</h5>
+                                    <p class="card-text fs-6">
+                                        Regístrate como estudiante para acceder a cientos de oportunidades de prácticas
+                                        preprofesionales...
+                                    </p>
+                                    <div class="d-flex justify-content-center">
+                                        <a th:href="@{/alumnos/registroAlumno}" class="btn btn-danger">
+                                            <i class="bi bi-person-check me-2"></i>Estudiante
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Empresa -->
+                        <div class="col-sm-6">
+                            <div class="card h-100 hover-lift">
+                                <div class="card-body text-center">
+                                    <div class="mb-4">
+                                        <i class="bi bi-building-fill text-primary icon-3rem"></i>
+                                    </div>
+                                    <h5 class="card-title fs-4 fw-bold mb-3">Crea tu cuenta de empresa</h5>
+                                    <p class="card-text fs-6">
+                                        Registra tu empresa para publicar ofertas de prácticas preprofesionales...
+                                    </p>
+                                    <div class="d-flex justify-content-center">
+                                        <a th:href="@{/empresas/registroEmpresa}" class="btn btn-danger">
+                                            <i class="bi bi-briefcase me-2"></i>Empresa
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section d-flex align-items-center">
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="animate-fade-in-up">
+                        <h1 class="hero-title text-white">
+                            Encuentra tu <span class="text-warning">Práctica Ideal</span>
+                        </h1>
+                        <p class="hero-subtitle text-white">
+                            Conectamos estudiantes talentosos con las mejores empresas del país.
+                        </p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="#como-funciona" class="btn btn-danger btn-lg">
+                                <i class="bi bi-play-circle me-2"></i>Comenzar ahora
+                            </a>
+                            <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#registrerModal">
+                                <i class="bi bi-person-plus me-2"></i>Crear cuenta gratis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <img th:src="@{/img/home.jpg}" alt="Estudiantes trabajando"
+                            class="img-fluid rounded-4 shadow-lg hover-lift">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How it Works Section -->
+    <section id="como-funciona" class="how-it-works">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in-on-scroll">
+                    <h2 class="display-5 fw-bold mb-3 text-gradient-red">¿Cómo funciona?</h2>
+                    <p class="lead text-muted">
+                        En solo 3 pasos simples puedes comenzar tu búsqueda de prácticas profesionales
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="step-card fade-in-on-scroll">
+                        <div class="step-number">
+                            <i class="bi bi-person-plus"></i>
+                        </div>
+                        <div class="step-connector"></div>
+                        <h4 class="fw-bold mb-3">Crea tu Perfil</h4>
+                        <p class="text-muted">
+                            Regístrate gratis y completa tu perfil profesional con tu información académica,
+                            habilidades y experiencia.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="step-card fade-in-on-scroll">
+                        <div class="step-number">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <div class="step-connector"></div>
+                        <h4 class="fw-bold mb-3">Explora Ofertas</h4>
+                        <p class="text-muted">
+                            Navega por cientos de ofertas de prácticas de empresas líderes.
+                            Usa nuestros filtros para encontrar lo que buscas.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="step-card fade-in-on-scroll">
+                        <div class="step-number">
+                            <i class="bi bi-handshake"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Postula y Conecta</h4>
+                        <p class="text-muted">
+                            Postula a las ofertas que más te interesen con un solo clic.
+                            Conecta directamente con reclutadores y empresas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">¿Listo para comenzar tu carrera?</h2>
+                    <p class="lead mb-4 opacity-90">
+                        Únete a miles de estudiantes que ya han encontrado su oportunidad ideal.
+                        ¡Es gratis!
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <button class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#registrerModal">
+                            <i class="bi bi-rocket-takeoff me-2"></i>Comenzar ahora
+                        </button>
+                        <a href="#como-funciona" class="btn btn-outline-light btn-lg">
+                            <i class="bi bi-info-circle me-2"></i>Saber más
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">EmpleaU</h5>
+                    <p class="text-muted mb-4">
+                        Conectando talento joven con las mejores oportunidades profesionales del país.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="footer-link" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="footer-link" title="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="footer-link" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="footer-link" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Estudiantes</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Buscar prácticas</a></li>
+                        <li><a href="#" class="text-white-50">Crear perfil</a></li>
+                        <li><a href="#" class="text-white-50">Consejos</a></li>
+                        <li><a href="#" class="text-white-50">Recursos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Empresas</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Publicar ofertas</a></li>
+                        <li><a href="#" class="text-white-50">Buscar talento</a></li>
+                        <li><a href="#" class="text-white-50">Planes</a></li>
+                        <li><a href="#" class="text-white-50">Soporte</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Soporte</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Centro de ayuda</a></li>
+                        <li><a href="#" class="text-white-50">Contacto</a></li>
+                        <li><a href="#" class="text-white-50">FAQ</a></li>
+                        <li><a href="#" class="text-white-50">Estado</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="fw-bold mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Términos</a></li>
+                        <li><a href="#" class="text-white-50">Privacidad</a></li>
+                        <li><a href="#" class="text-white-50">Cookies</a></li>
+                        <li><a href="#" class="text-white-50">Licencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 EmpleaU. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        Hecho con <i class="bi bi-heart-fill text-danger"></i> en Perú
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling para los enlaces del navbar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'linear-gradient(135deg, rgba(220, 38, 38, 0.95) 0%, rgba(239, 68, 68, 0.95) 100%)';
+                navbar.style.backdropFilter = 'blur(15px)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, var(--primary-red) 0%, var(--accent-red) 100%)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            }
+        });
+
+        // Loading states for buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                if (this.getAttribute('data-bs-toggle') !== 'modal' && !this.getAttribute('href')?.startsWith('#')) {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="loading-animation me-2"></span>Cargando...';
+                    this.disabled = true;
+
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Enhanced modal animations
+        const modal = document.getElementById('registrerModal');
+        modal.addEventListener('show.bs.modal', function () {
+            const cards = this.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+
+</html>

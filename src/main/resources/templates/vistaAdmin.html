@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - PracticasPro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/vistaadmin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="#" class="sidebar-brand">
+            <i class="bi bi-shield-check"></i>
+            <span class="brand-text">Admin Panel</span>
+        </a>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <div class="nav-section">Principal</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#dashboard" data-section="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="nav-section">Gestión</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#students" data-section="students">
+                    <i class="bi bi-mortarboard"></i>
+                    <span class="nav-text">Alumnos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#companies" data-section="companies">
+                    <i class="bi bi-building"></i>
+                    <span class="nav-text">Empresas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#jobs" data-section="jobs">
+                    <i class="bi bi-briefcase"></i>
+                    <span class="nav-text">Ofertas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#applications" data-section="applications">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span class="nav-text">Postulaciones</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="nav-section">Sistema</div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#users" data-section="users">
+                    <i class="bi bi-people"></i>
+                    <span class="nav-text">Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#settings" data-section="settings">
+                    <i class="bi bi-gear"></i>
+                    <span class="nav-text">Configuración</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Main Content -->
+<div class="main-content" id="mainContent">
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="d-flex align-items-center">
+            <button title="barras" class="toggle-sidebar me-3" id="toggleSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <h4 class="mb-0 fw-bold text-primary">Panel de Administración</h4>
+        </div>
+        
+        <div class="d-flex align-items-center gap-3">
+            
+            
+            <div class="dropdown">
+                <button class="btn btn-outline-red dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-bell me-2"></i>3
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Nueva postulación</a></li>
+                    <li><a class="dropdown-item" href="#">Empresa registrada</a></li>
+                    <li><a class="dropdown-item" href="#">Reporte generado</a></li>
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn btn-primary-red dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <i class="bi bi-person-circle me-2"></i>Admin
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
+                    <li><a class="dropdown-item" href="#">Configuración</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="p-4">
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="content-section">
+            <!-- Stats Cards -->
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-card">
+                        <div class="stats-icon icon-red">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <div class="stats-number">1,247</div>
+                        <h6 class="fw-bold">Estudiantes</h6>
+                        <p class="text-muted mb-0 small">+12% este mes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-card">
+                        <div class="stats-icon icon-orange">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="stats-number">89</div>
+                        <h6 class="fw-bold">Empresas</h6>
+                        <p class="text-muted mb-0 small">+8% este mes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-card">
+                        <div class="stats-icon icon-pink">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <div class="stats-number">156</div>
+                        <h6 class="fw-bold">Ofertas Activas</h6>
+                        <p class="text-muted mb-0 small">+15% este mes</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="stats-card">
+                        <div class="stats-icon icon-rose">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div class="stats-number">2,341</div>
+                        <h6 class="fw-bold">Postulaciones</h6>
+                        <p class="text-muted mb-0 small">+23% este mes</p>
+                    </div>
+                </div>
+            </div>
+       
+
+            <!-- Actividad Reciente -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="content-card p-4">
+                        <h5 class="fw-bold mb-4">
+                            <i class="bi bi-clock-history text-danger me-2"></i>
+                            Actividad Reciente
+                        </h5>
+                        <div class="table-responsive">
+                            <table class="table table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Acción</th>
+                                        <th>Fecha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">                                                
+                                                <div>
+                                                    <div class="fw-bold">Ana García</div>
+                                                    <small class="text-muted">Estudiante</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Postulación enviada</td>
+                                        <td>Hace 2 horas</td>
+                                    </tr>                                   
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">                                               
+                                                <div>
+                                                    <div class="fw-bold">Carlos López</div>
+                                                    <small class="text-muted">Estudiante</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Perfil actualizado</td>
+                                        <td>Hace 1 día</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="content-card p-4">
+                        <h5 class="fw-bold mb-4">
+                            <i class="bi bi-bell text-danger me-2"></i>
+                            Notificaciones
+                        </h5>
+                        <div class="notification-item">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Nueva empresa registrada</h6>
+                                    <small class="text-muted">StartupTech requiere aprobación</small>
+                                </div>
+                                <small class="text-muted">2h</small>
+                            </div>
+                        </div>
+                        
+                        <div class="notification-item">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Reporte mensual listo</h6>
+                                    <small class="text-muted">Estadísticas de octubre disponibles</small>
+                                </div>
+                                <small class="text-muted">4h</small>
+                            </div>
+                        </div>
+                        
+                        <div class="notification-item">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="fw-bold mb-1">Sistema actualizado</h6>
+                                    <small class="text-muted">Nuevas funcionalidades disponibles</small>
+                                </div>
+                                <small class="text-muted">1d</small>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-red btn-sm">Ver Todas</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seccion de alumnos -->
+        <div id="students-section" class="content-section d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold">Gestión de Alumnos</h3>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-red">
+                        <i class="bi bi-download me-2"></i>Exportar
+                    </button>
+                    <button class="btn btn-primary-red">
+                        <i class="bi bi-plus me-2"></i>Nuevo Estudiante
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-card p-4">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="search-box">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" class="form-control search-input" placeholder="Buscar estudiantes...">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex gap-2">
+                            <select title="carreras" class="form-select">
+                                <option>Todas las carreras</option>
+                                <option>Ingeniería de Sistemas</option>
+                                <option>Administración</option>
+                                <option>Marketing</option>
+                            </select>
+                            <select title="estados" class="form-select">
+                                <option>Todos los estados</option>
+                                <option>Activo</option>
+                                <option>Inactivo</option>
+                                <option>Suspendido</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th>Estudiante</th>
+                                <th>Universidad</th>
+                                <th>Carrera</th>
+                                <th>Ciclo</th>
+                                <th>Estado</th>
+                                <th>Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        
+                                        <div>
+                                            <div class="fw-bold">Ana García Mendoza</div>
+                                            <small class="text-muted">ana.garcia@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>UNMSM</td>
+                                <td>Ing. Sistemas</td>
+                                <td>9no</td>
+                                <td><span class="badge-active">Activo</span></td>
+                                <td>15/10/2024</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="action-btn" title="Ver perfil">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="action-btn danger" title="Suspender">
+                                            <i class="bi bi-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">                                 
+                                        <div>
+                                            <div class="fw-bold">Carlos López Rivera</div>
+                                            <small class="text-muted">carlos.lopez@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>UPC</td>
+                                <td>Ing. Software</td>
+                                <td>10mo</td>
+                                <td><span class="badge-active">Activo</span></td>
+                                <td>12/10/2024</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="action-btn" title="Ver perfil">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="action-btn danger" title="Suspender">
+                                            <i class="bi bi-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="fw-bold">María Quispe Huamán</div>
+                                            <small class="text-muted">maria.quispe@email.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>PUCP</td>
+                                <td>Diseño Gráfico</td>
+                                <td>10mo</td>
+                                <td><span class="badge-pending">Suspendida</span></td>
+                                <td>10/10/2024</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="action-btn" title="Ver perfil">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="action-btn danger" title="Suspender">
+                                            <i class="bi bi-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <div class="text-muted">
+                        Mostrando 1-10 de 1,247 estudiantes
+                    </div>
+                    <nav>
+                        <ul class="pagination mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" title="Página anterior"><i class="bi bi-chevron-left"></i></a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" title="Página siguiente"><i class="bi bi-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seccion de Empresas -->
+        <div id="companies-section" class="content-section d-none">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-bold">Gestión de Empresas</h3>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-red">
+                        <i class="bi bi-download me-2"></i>Exportar
+                    </button>
+                    <button class="btn btn-primary-red">
+                        <i class="bi bi-plus me-2"></i>Nueva Empresa
+                    </button>
+                </div>
+            </div>
+
+            <div class="content-card p-4">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="search-box">
+                            <i class="bi bi-search search-icon"></i>
+                            <input type="text" class="form-control search-input" placeholder="Buscar empresas...">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex gap-2">
+                            <select title="sector" class="form-select">
+                                <option>Todos los sectores</option>
+                                <option>Tecnología</option>
+                                <option>Finanzas</option>
+                                <option>Salud</option>
+                            </select>
+                            <select title="estado"  class="form-select">
+                                <option>Todos los estados</option>
+                                <option>Activa</option>
+                                <option>Inactiva</option>
+                                <option>Suspendida</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th>Empresa</th>
+                                <th>Sector</th>
+                                <th>Ofertas</th>
+                                <th>Estado</th>
+                                <th>Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        
+                                        <div>
+                                            <div class="fw-bold">TechCorp Solutions</div>
+                                            <small class="text-muted">contacto@techcorp.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Tecnología</td>
+                                <td>12</td>
+                                <td><span class="badge-active">Activa</span></td>
+                                <td>20/09/2024</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="action-btn" title="Ver perfil">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Editar">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="action-btn danger" title="Suspender">
+                                            <i class="bi bi-ban"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        
+                                        <div>
+                                            <div class="fw-bold">StartupTech</div>
+                                            <small class="text-muted">hr@startuptech.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Tecnología</td>
+                                <td>3</td>
+                                <td><span class="badge-pending">Suspendida</span></td>
+                                <td>18/10/2024</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <button class="action-btn" title="Ver perfil">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Aprobar">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button class="action-btn danger" title="Rechazar">
+                                            <i class="bi bi-x"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <div id="analytics-section" class="content-section d-none">
+            <h3 class="fw-bold mb-4">Analíticas y Reportes</h3>
+            
+            <div class="row mb-4">
+                <div class="col-lg-6">
+                    <div class="content-card p-4">
+                        <h5 class="fw-bold mb-4">Postulaciones por Mes</h5>
+                        <div class="chart-container">
+                            <canvas id="applicationsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content-card p-4">
+                        <h5 class="fw-bold mb-4">Sectores más Populares</h5>
+                        <div class="chart-container">
+                            <canvas id="sectorsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Sidebar Toggle
+    document.getElementById('toggleSidebar').addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        
+        sidebar.classList.toggle('collapsed');
+        mainContent.classList.toggle('expanded');
+    });
+
+    // Navigation
+    document.querySelectorAll('.nav-link[data-section]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('d-none');
+            });
+            
+            // Show selected section
+            const sectionId = this.getAttribute('data-section') + '-section';
+            document.getElementById(sectionId).classList.remove('d-none');
+        });
+    });
+
+    // Charts
+    function initCharts() {
+        // Registrations Chart
+        const registrationsCtx = document.getElementById('registrationsChart');
+        if (registrationsCtx) {
+            new Chart(registrationsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct'],
+                    datasets: [{
+                        label: 'Estudiantes',
+                        data: [65, 78, 90, 81, 95, 105, 120, 135, 142, 158],
+                        borderColor: '#dc2626',
+                        backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                        tension: 0.4
+                    }, {
+                        label: 'Empresas',
+                        data: [5, 8, 12, 15, 18, 22, 25, 28, 32, 35],
+                        borderColor: '#ea580c',
+                        backgroundColor: 'rgba(234, 88, 12, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Users Chart
+        const usersCtx = document.getElementById('usersChart');
+        if (usersCtx) {
+            new Chart(usersCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Estudiantes', 'Empresas', 'Administradores'],
+                    datasets: [{
+                        data: [1247, 89, 5],
+                        backgroundColor: ['#dc2626', '#ea580c', '#e11d48'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+        }
+
+        // Applications Chart
+        const applicationsCtx = document.getElementById('applicationsChart');
+        if (applicationsCtx) {
+            new Chart(applicationsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Postulaciones',
+                        data: [120, 190, 300, 500, 200, 300],
+                        backgroundColor: 'rgba(220, 38, 38, 0.8)',
+                        borderColor: '#dc2626',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Sectors Chart
+        const sectorsCtx = document.getElementById('sectorsChart');
+        if (sectorsCtx) {
+            new Chart(sectorsCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Tecnología', 'Finanzas', 'Salud', 'Educación', 'Retail'],
+                    datasets: [{
+                        data: [45, 25, 15, 10, 5],
+                        backgroundColor: ['#dc2626', '#ea580c', '#e11d48', '#f43f5e', '#ef4444'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+    // Initialize charts when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initCharts();
+    });
+
+    // Action buttons functionality
+    document.querySelectorAll('.action-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const action = this.getAttribute('title');
+            console.log(`Acción: ${action}`);
+            
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+
+    // Search functionality
+    document.querySelectorAll('.search-input').forEach(input => {
+        input.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            console.log('Buscando:', searchTerm);
+            // Implement search logic here
+        });
+    });
+
+    // Mobile responsiveness
+    function handleResize() {
+        if (window.innerWidth <= 768) {
+            document.getElementById('sidebar').classList.add('collapsed');
+            document.getElementById('mainContent').classList.add('expanded');
+        }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Call on load
+</script>
+</body>
+</html>
